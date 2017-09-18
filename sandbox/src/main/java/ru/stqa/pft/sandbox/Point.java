@@ -2,12 +2,12 @@ package ru.stqa.pft.sandbox;
 
 public class Point {
 
- public static void main (String[] args) {
-     double pa = 7 - 2;
-     double pb = 9 - 3;
-     double pc = pa + pb;
-     System.out.println("Расстояние между точками " + pa + " = " + pb + " = " + pc);
- }
+    public static void main(String[] args) {
+        double pa = 7 - 2;
+        double pb = 9 - 3;
+        double pc = pa + pb;
+        System.out.println("Расстояние между точками " + pa + " = " + pb + " = " + pc);
+    }
 
     public double x;
     public double y;
@@ -16,6 +16,7 @@ public class Point {
         this.x = x;
         this.y = y;
     }
+
     public static double distance(Point p1, Point p2) {
         double x = p1.x - p2.x;
         double y = p1.y - p2.y;
@@ -23,8 +24,12 @@ public class Point {
     }
 
     public double area() {
-        return  this.x * this.y;
+        return this.x * this.y;
     }
 
+    @Override
+    public String toString() {
+        return "Point{" + " x = " + x + ", y = " + y + '}';
+    }
 }
 
