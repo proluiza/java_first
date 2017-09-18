@@ -9,7 +9,6 @@ public class Point {
      System.out.println("Расстояние между точками " + pa + " = " + pb + " = " + pc);
  }
 
-
     public double x;
     public double y;
 
