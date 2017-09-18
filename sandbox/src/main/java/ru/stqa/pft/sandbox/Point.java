@@ -2,6 +2,13 @@ package ru.stqa.pft.sandbox;
 
 public class Point {
 
+ public static void main (String[] args) {
+     double pa = 7 - 2;
+     double pb = 9 - 3;
+     double pc = pa + pb;
+     System.out.println("Расстояние между точками " + pa + " = " + pb + " = " + pc);
+ }
+
 
     public double x;
     public double y;
