@@ -1,7 +1,10 @@
+package ru.stqa.pft.addressbook;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 import java.util.Date;
@@ -17,10 +20,10 @@ public class GroupCreationTest {
     
     @BeforeMethod
     public void setUp() throws Exception {
+        System.setProperty("webdriver.gecko.driver","C:\\geckodriver\\geckodriver.exe");
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
-    
     @Test
     public void GroupCreationTest() {
         wd.get("http://localhost/addressbook/group.php");
