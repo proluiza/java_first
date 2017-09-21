@@ -9,9 +9,9 @@ public class GroupDeletionTests extends TestBase {
     @Test
     public void testGroupDeletion() {
         app.gotoGroupPage();
-        app.selectGroup();
-        app.deleteSelecredGroups();
-        app.returnToGroupPage();
+        app.getGroupHelper().selectGroup();
+        app.getGroupHelper().deleteSelecredGroups();
+        app.getGroupHelper().returnToGroupPage();
     }
 
 }
