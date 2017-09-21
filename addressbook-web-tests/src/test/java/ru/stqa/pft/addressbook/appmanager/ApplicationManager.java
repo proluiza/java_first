@@ -6,9 +6,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
+
+
 public class ApplicationManager {
 
-    private final GroupHelper groupHelper = new GroupHelper();
+
+    private final NavigationHelper navigationHelper = new NavigationHelper();
+    private GroupHelper groupHelper;
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
         try {
@@ -19,31 +23,33 @@ public class ApplicationManager {
         }
     }
     public void init() {
-        groupHelper.wd = new FirefoxDriver();
-        groupHelper.wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        groupHelper.wd.get("http://localhost/addressbook/group.php");
+        FirefoxDriver wd;
+        wd = new FirefoxDriver();
+        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/group.php");
+        groupHelper = new GroupHelper (wd);
         login("admin", "secret");
     }
 
     private void login(String username, String password) {
-        groupHelper.wd.findElement(By.name("user")).click();
-        groupHelper.wd.findElement(By.name("user")).clear();
-        groupHelper.wd.findElement(By.name("user")).sendKeys(username);
-        groupHelper.wd.findElement(By.name("pass")).click();
-        groupHelper.wd.findElement(By.name("pass")).clear();
-        groupHelper.wd.findElement(By.name("pass")).sendKeys(password);
-        groupHelper.wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-    }
-
-    public void gotoGroupPage() {
-        groupHelper.wd.findElement(By.linkText("groups")).click();
+       navigationHelper.wd.findElement(By.name("user")).click();
+       navigationHelper.wd.findElement(By.name("user")).clear();
+       navigationHelper.wd.findElement(By.name("user")).sendKeys(username);
+       navigationHelper.wd.findElement(By.name("pass")).click();
+       navigationHelper.wd.findElement(By.name("pass")).clear();
+       navigationHelper.wd.findElement(By.name("pass")).sendKeys(password);
+       navigationHelper.wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
     }
 
     public void stop() {
-        groupHelper.wd.quit();
+        navigationHelper.wd.quit();
     }
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+
+    public NavigationHelper getNavigationHelper() {
+        return navigationHelper;
     }
 }
