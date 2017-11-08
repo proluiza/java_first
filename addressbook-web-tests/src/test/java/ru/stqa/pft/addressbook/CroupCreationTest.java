@@ -7,11 +7,11 @@ public class CroupCreationTest extends TestBase{
 
     @Test
     public void testCroupCreationTest() {
-        goToGroupPage();
-        initGroupCreation();
-        fillGroupForm(new GroupDate("Ruru2", "Ruru3", "Ruru4"));
-        submitGroupCreation();
-        returnToGroupPage();
+        app.goToGroupPage();
+        app.initGroupCreation();
+        app.fillGroupForm(new GroupDate("Ruru2", "Ruru3", "Ruru4"));
+        app.submitGroupCreation();
+        app.returnToGroupPage();
     }
 
 }
