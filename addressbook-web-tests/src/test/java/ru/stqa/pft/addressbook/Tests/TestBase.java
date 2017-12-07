@@ -22,4 +22,9 @@ public class TestBase {
     public ApplicationManager getApp() {
         return app;
     }
+    gotoGroupPage();
+    initGroupCreation();
+    submitGroupCreation();
+    returnToGroupPage();
 }
+
